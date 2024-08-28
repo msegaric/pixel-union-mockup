@@ -1,12 +1,13 @@
 import AddToCartButton from './AddToCartButton'
 import StarRating from './StarRating'
+import PlaceholderImage from '../assets/placeholder-image.jpg'
 
 function ProductCard({product}) {
   return (
     <div className='product-card'>
       <div className='product-card__image-container'>
         <img 
-          src={product.featureImageSource !== "" ? product.featureImageSource : "/src/placeholder-image.jpg"} 
+          src={product.featureImageSource !== "" ? product.featureImageSource : PlaceholderImage} 
           className='product-card__image'
           alt='alt text placeholder...'
         />
