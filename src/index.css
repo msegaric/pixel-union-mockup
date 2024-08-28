@@ -1,0 +1,107 @@
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+  max-width: 100%;
+}
+
+body {
+  box-sizing: border-box;
+  background-color: #D3D3D3;
+  font-family:Arial, Helvetica, sans-serif;
+}
+.product-grid{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.product-card {
+  margin: 10px;
+  width: 300px;
+  border-radius: 5px;
+  padding: 15px; 
+  text-align: center;
+  background-color: white;
+  box-shadow: 1px 2px 7px #888888;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.product-card > * {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+.product-card__image-container {
+  position: relative;
+  margin-bottom: 10px;
+}
+.product-card__image {
+  height: 275px;
+  width: 100%;
+  object-fit: cover;
+  object-position: center center;
+  transition: 0.2s;
+}
+
+.product-card__title {
+  font-weight: normal;
+  font-size: 1.3em;
+  color: #333333
+}
+.product-card__price {
+  font-size: 1.3em;
+  color: #555555;
+}
+
+.product-card__button {
+  opacity: 0;
+  visibility: hidden;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  color: white;
+  background: #2161bb;
+  transition: 0.2s;
+  border: none;
+  border-radius: 3px;
+  padding: 10px 30px;
+  transform: translate(-50%,-50%);
+}
+.product-card:hover .product-card__image{
+  opacity: 0.3;
+}
+.product-card:hover .product-card__button {
+  opacity: 1;
+  visibility: visible;
+}
+.product-card__button:hover,
+.product-card__button:focus {
+  background: #4d95f8;
+}
+@supports (background: paint(something)) {
+  @property --color1 {
+    syntax: '<color>';
+    inherits: false;
+    initial-value: #2161bb; 
+  }
+  @property --color2 {
+    syntax: '<color>';
+    inherits: false;
+    initial-value: #194a8f;
+  }
+  .product-card__button {
+    background: linear-gradient(var(--color1), var(--color2));
+    transition: opacity 0.2s, visibility 0.2s, --color1 0.2s, --color2 0.2s;
+  }
+  .product-card__button:hover,
+  .product-card__button:focus {
+    --color1: #4d95f8;
+    --color2: #3367b0;
+  }
+}
