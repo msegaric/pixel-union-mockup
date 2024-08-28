@@ -13,11 +13,24 @@ body {
   background-color: #D3D3D3;
   font-family:Arial, Helvetica, sans-serif;
 }
+.grid-container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+@media screen and (max-width: 960px){
+  .grid-container {
+    max-width: 650px;
+  }
+}
+@media screen and (max-width: 640px){
+  .grid-container {
+    max-width: 350px;
+  }
+}
 .product-grid{
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
 }
 
 .product-card {
@@ -104,4 +117,11 @@ body {
     --color1: #4d95f8;
     --color2: #3367b0;
   }
+}
+.cart-total {
+  background: white;
+  display: inline-block;
+  margin: 10px;
+  padding: 10px 30px;
+  border-radius: 3px;
 }

@@ -7,7 +7,7 @@ function ProductCard({product}) {
     <div className='product-card'>
       <div className='product-card__image-container'>
         <img 
-          src={product.featureImageSource !== "" ? product.featureImageSource : PlaceholderImage} 
+          src={(product.featureImageSource && product.featureImageSource !== "") ? product.featureImageSource : PlaceholderImage} 
           className='product-card__image'
           alt='alt text placeholder...'
         />

@@ -12,15 +12,26 @@ export const CartProvider = ({children}) => {
   const [cartState, updateCartState] = useState(emptyCart);
 
   const updateStoredCart = (updatedCart) => {
-    localStorage.setItem("storedCart", updatedCart);
+    localStorage.setItem('storedCart', JSON.stringify(updatedCart));
   }
 
   useEffect(() => {
-    console.log('the state of the cart is currently: ', cartState);
-    // if(cartState !== localStorage.getItem("storedCart")){
-    //   updateStoredCart(cartState);
-    // }
-  },[cartState.items])
+    if(cartState.items.length > 0 && JSON.stringify(cartState) !== localStorage.getItem('storedCart')){
+       updateStoredCart(cartState);
+    }
+  },[cartState])
+
+  useEffect(() => {
+    try{
+      JSON.parse(localStorage.getItem('storedCart'));
+    } catch{
+      return console.warn('The value we have stored for the cart isnt valid');
+    }
+    const storedCart = JSON.parse(localStorage.getItem('storedCart'));
+    if(storedCart && storedCart.items && storedCart.totalPrice) {
+      updateCartState(storedCart);
+    }
+  },[])
   
   const addToCart = (product, quantity = 1) => {
     const lineItem = product;
