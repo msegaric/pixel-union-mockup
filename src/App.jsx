@@ -1,6 +1,5 @@
 import {CartProvider} from '././context/CartContext';
 import ProductGrid from '././components/ProductGrid';
-import ProductCard from '././components/ProductCard';
 
 function App() {
 

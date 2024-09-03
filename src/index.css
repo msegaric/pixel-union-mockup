@@ -66,11 +66,29 @@ body {
   font-size: 1.3em;
   color: #333333
 }
+
 .product-card__price {
   font-size: 1.3em;
   color: #555555;
 }
-
+.sold-out {
+  text-decoration: line-through;
+  color: #999999;
+}
+.sold-out__badge {
+  position: absolute;
+  color: white;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #d8a629;
+  text-transform: uppercase;
+  vertical-align: middle;
+  text-align: center;
+  line-height: 30px;
+  bottom: 10%;
+  left: -10%;
+}
 .product-card__button {
   opacity: 0;
   visibility: hidden;
@@ -124,4 +142,20 @@ body {
   margin: 10px;
   padding: 10px 30px;
   border-radius: 3px;
+}
+.swatch-container {
+  display: flex;
+  min-height: 25px;
+  justify-content: center;
+}
+.swatch {
+  width: 25px;
+  height: 25px;
+  border: none;
+  margin-right: 10px;
+}
+
+.swatch.selected {
+  box-shadow: 0 0 0 1.5px white inset;
+  border: 1.5px solid black;
 }
